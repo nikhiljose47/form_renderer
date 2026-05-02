@@ -1,19 +1,42 @@
 # form_renderer
 
-A Flutter project for displaying forms, templates etc as widgets dynamically from the data.
+A Flutter project for displaying forms, templates, etc. dynamically as widgets from data.
 
 ## Getting Started
 
-Setup and run: 
-flutter pub get
-flutter run
+Setup and run:
 
+flutter pub get  
+flutter run  
+
+---
 
 ## Architecture
 
-This app is buuilt using Flutter Clean Architecture and follows a good speration of responsibilities making it modular and scalable.
+This app is built using a simple clean architecture and follows a clear separation of responsibilities, making it modular and easy to understand.
 
-1.FlowManager - Manages the flow for the forms 
-2.FormScreen - Display one form screen in the UI
-3.TemplateScreen - Display one template in the UI
-4.FormEngine - A form flow controller which manages the form page with navigation
+### Components
+
+1. **FlowManager**  
+   - Manages the overall flow of the app  
+   - Decides which screen to show (Form / Template)
+
+2. **FormScreen**  
+   - Displays one form page in the UI  
+   - Handles user interaction (Next / Back buttons)
+
+3. **TemplateScreen**  
+   - Displays template or success screen  
+   - Shows submitted data
+
+4. **FormEngine**  
+   - Controls form flow logic  
+   - Handles:
+     - Page navigation (Next / Back)  
+     - Submit actions  
+     - Basic validation  
+
+5. **FormStateStore**  
+   - Stores user input data across pages  
+   - Maintains state while navigating
+
