@@ -1,7 +1,7 @@
 import 'package:form_renderer/core/services/form_state_store.dart';
 
 class FormValueReplacer {
-  static String resolve(String text) {
+  static String replace(String text) {
     final data = FormStateStore().getAll();
 
     data.forEach((key, value) {

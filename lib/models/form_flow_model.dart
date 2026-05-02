@@ -22,7 +22,7 @@ class FormFlowModel {
   });
 
   factory FormFlowModel.fromJson(Map<String, dynamic> json) {
-    // -------- Pages --------
+
     List<FormPageModel> pagesList = [];
     if (json['pages'] != null) {
       List rawPages = json['pages'];
@@ -31,7 +31,6 @@ class FormFlowModel {
       }
     }
 
-    // -------- Actions --------
     List<FormActionModel> actionsList = [];
     if (json['onSubmit'] != null) {
       List rawActions = json['onSubmit'];
@@ -40,7 +39,6 @@ class FormFlowModel {
       }
     }
 
-    // -------- Template (Success Screen) --------
     List<TemplateSectionModel>? sections;
 
     if (json['body'] != null) {

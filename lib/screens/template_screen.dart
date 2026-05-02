@@ -4,7 +4,7 @@ import 'package:form_renderer/models/form_flow_model.dart';
 
 class TemplateScreen extends StatelessWidget {
   final FormFlowModel flow;
-  final Function(String) onNavigate; // ✅ callback
+  final Function(String) onNavigate;
 
   const TemplateScreen({
     super.key,
@@ -30,13 +30,10 @@ class TemplateScreen extends StatelessWidget {
                     children: [
                       for (var item in section.items)
                         Row(
-                          mainAxisAlignment:
-                              MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(item.label),
-                            Text(
-                              FormValueReplacer.resolve(item.value),
-                            ),
+                            Text(FormValueReplacer.replace(item.value)),
                           ],
                         ),
                     ],
@@ -47,10 +44,8 @@ class TemplateScreen extends StatelessWidget {
             const SizedBox(height: 20),
 
             ElevatedButton(
-              onPressed: () {
-                onNavigate("stockForm"); 
-              },
-              child: const Text("BACK TO FORM"),
+              onPressed: () => onNavigate("stockForm"),
+              child: const Text("Back to form"),
             ),
           ],
         ),

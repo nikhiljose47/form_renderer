@@ -21,16 +21,13 @@ class FormEngine {
   String? onNextAction() {
     final error = _validateCurrentPage();
     if (error != null) {
-      return "ERROR::$error";
+      return 'ERROR: $error';
     }
 
     final label = currentPage.actionLabel;
 
-    if (label == 'NEXT') {
-      if (currentIndex < pages.length - 1) {
-        currentIndex++;
-      }
-      return null;
+    if (label == 'NEXT' && currentIndex < pages.length - 1) {
+      currentIndex++;
     }
 
     if (label == 'SUBMIT') {
@@ -74,9 +71,5 @@ class FormEngine {
     if (currentIndex > 0) {
       currentIndex--;
     }
-  }
-
-  void reset() {
-    currentIndex = 0;
   }
 }

@@ -52,12 +52,8 @@ class _FlowManagerState extends State<FlowManager> {
   void handleNext() {
     final result = engine!.onNextAction();
 
-    if (result != null && result.startsWith("ERROR::")) {
-      final message = result.replaceFirst("ERROR::", "");
-
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(message)));
+    if (result != null && result.startsWith("ERROR:")) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result)));
       return;
     }
 

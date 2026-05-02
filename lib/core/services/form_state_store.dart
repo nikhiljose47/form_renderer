@@ -5,7 +5,6 @@ class FormStateStore {
 
   FormStateStore._internal();
 
-
   void setValue(String key, dynamic value) {
     _data[key] = value;
   }
@@ -14,5 +13,5 @@ class FormStateStore {
     return _data[key] as T?;
   }
 
-  Map<String, dynamic> getAll() => Map.unmodifiable(_data);
+  Map<String, dynamic> getAll() => _data;
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:form_renderer/core/constants/assets_path.dart';
 import 'package:form_renderer/core/services/config_loader.dart';
 import 'package:form_renderer/models/form_flow_model.dart';
-import 'package:form_renderer/screens/flow_manger_screen.dart';
+import 'package:form_renderer/screens/flow_manager_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
