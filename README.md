@@ -31,10 +31,7 @@ This app is built using a simple clean architecture and follows a clear separati
 
 4. **FormEngine**  
    - Controls form flow logic  
-   - Handles:
-     - Page navigation (Next / Back)  
-     - Submit actions  
-     - Basic validation  
+   - Handles: Navigation, Validations. 
 
 5. **FormStateStore**  
    - Stores user input data across pages  
