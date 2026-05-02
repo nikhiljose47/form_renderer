@@ -1,0 +1,99 @@
+{
+  "name": "STOCK_REPORTS",
+  "active": true,
+  "initialPage": "stockForm",
+  "flows": [
+    {
+      "name": "stockForm",
+      "screenType": "FORM",
+      "heading": "STOCK REPORT",
+      "pages": [
+        {
+          "page": "medicineDetails",
+          "label": "MEDICINE DETAILS",
+          "order": 1,
+          "actionLabel": "NEXT",
+          "properties": [
+            {
+              "type": "template",
+              "format": "textInput",
+              "fieldName": "medicine",
+              "label": "MEDICINE NAME",
+              "mandatory": true,
+              "validations": [
+                { "type": "required", "message": "MEDICINE_REQUIRED" },
+                { "type": "minLength", "value": 2, "message": "MIN_2_CHARS" }
+              ]
+            }
+          ]
+        },
+        {
+          "page": "reportType",
+          "label": "REPORT TYPE",
+          "order": 2,
+          "actionLabel": "SUBMIT",
+          "properties": [
+            {
+              "type": "template",
+              "format": "dropdown",
+              "fieldName": "type",
+              "label": "TYPE",
+              "mandatory": true,
+              "enums": [
+                { "code": "IN", "name": "Stock In" },
+                { "code": "OUT", "name": "Stock Out" }
+              ],
+              "validations": [
+                { "type": "required", "message": "TYPE_REQUIRED" }
+              ]
+            }
+          ]
+        }
+      ],
+      "onSubmit": [
+        {
+          "actionType": "SHOW_TOAST",
+          "properties": { "message": "Captured: {{medicine}} - {{type}}" }
+        },
+        {
+          "actionType": "NAVIGATION",
+          "properties": { "name": "successScreen", "type": "TEMPLATE" }
+        }
+      ]
+    },
+    {
+      "name": "successScreen",
+      "screenType": "TEMPLATE",
+      "heading": "SUCCESS",
+      "body": [
+        {
+          "type": "template",
+          "format": "card",
+          "children": [
+            {
+              "type": "template",
+              "format": "labelPairList",
+              "data": [
+                { "key": "MEDICINE", "value": "{{medicine}}" },
+                { "key": "TYPE", "value": "{{type}}" }
+              ]
+            }
+          ]
+        }
+      ],
+      "footer": [
+        {
+          "type": "template",
+          "format": "button",
+          "label": "BACK TO FORM",
+          "onAction": [
+            {
+              "actionType": "NAVIGATION",
+              "properties": { "name": "stockForm", "type": "FORM" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
